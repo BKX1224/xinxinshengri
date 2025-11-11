@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王梓欣生日快乐</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial Rounded MT Bold', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+        
+        .birthday-title {
+            font-size: 3.5rem;
+            color: #ff4081;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .birthday-subtitle {
+            font-size: 1.5rem;
+            color: #5d4037;
+            margin-bottom: 30px;
+        }
+        
+        .decoration {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .balloon {
+            width: 50px;
+            height: 60px;
+            background: #ff4081;
+            border-radius: 50%;
+            position: relative;
+            margin: 0 15px;
+            box-shadow: inset -7px -3px 10px rgba(0, 0, 0, 0.1);
+            animation: float 5s ease-in-out infinite;
+        }
+        
+        .balloon:before {
+            content: "";
+            width: 2px;
+            height: 70px;
+            background: #ffcdd2;
+            position: absolute;
+            top: 60px;
+            left: 24px;
+        }
+        
+        .balloon:nth-child(2) {
+            background: #4fc3f7;
+            animation-delay: 0.5s;
+        }
+        
+        .balloon:nth-child(3) {
+            background: #fff176;
+            animation-delay: 1s;
+        }
+        
+        .balloon:nth-child(4) {
+            background: #81c784;
+            animation-delay: 1.5s;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(0); }
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .message-box {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+        }
+        
+        .message-box h2 {
+            color: #ff4081;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .message-box p {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        
+        .photo-gallery {
+            flex: 1;
+            min-width: 300px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        
+        .photo-frame {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            aspect-ratio: 1/1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .photo-frame:hover {
+            transform: scale(1.05);
+        }
+        
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .add-photo {
+            background: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .add-photo span {
+            font-size: 3rem;
+            color: #9e9e9e;
+        }
+        
+        .add-photo p {
+            margin-top: 10px;
+            color: #757575;
+        }
+        
+        .cake-section {
+            text-align: center;
+            margin: 50px 0;
+        }
+        
+        .cake {
+            width: 200px;
+            height: 100px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .cake-base {
+            width: 200px;
+            height: 60px;
+            background: #8d6e63;
+            border-radius: 10px 10px 0 0;
+            position: relative;
+        }
+        
+        .cake-top {
+            width: 220px;
+            height: 40px;
+            background: #ffcdd2;
+            border-radius: 50%;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+        }
+        
+        .candle {
+            width: 10px;
+            height: 40px;
+            background: #4fc3f7;
+            position: absolute;
+            top: -50px;
+            left: 95px;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .flame {
+            width: 15px;
+            height: 25px;
+            background: #ffeb3b;
+            border-radius: 50% 50% 20% 20%;
+            position: absolute;
+            top: -70px;
+            left: 92.5px;
+            animation: flicker 0.5s infinite alternate;
+        }
+        
+        @keyframes flicker {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        .wishes {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+        }
+        
+        .wishes h2 {
+            color: #ff4081;
+            margin-bottom: 20px;
+        }
+        
+        .wish-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .wish {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+            color: #5d4037;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #5d4037;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .birthday-title {
+                font-size: 2.5rem;
+            }
+            
+            .content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="birthday-title">宝宝生日快乐！</h1>
+            <p class="birthday-subtitle">庆祝我们过的首个生日</p>
+            
+            <div class="decoration">
+                <div class="balloon"></div>
+                <div class="balloon"></div>
+                <div class="balloon"></div>
+                <div class="balloon"></div>
+            </div>
+        </header>
+        
+        <section class="content">
+            <div class="message-box">
+                <h2>  哈喽宝宝！首先祝你生日快乐🎂，很开心陪你的第一个生日</h2>
+                <p>按原计划本来可以见面一起过的，但真的是计划赶不上变化，不过也很开心，起码我们马上可以见面，头一个生日本来应该很隆重的过的，原谅我现在的条件有限</p>
+                <p>，我想来想去送给你一个什么生日礼物好，我这个人是很注重仪式感的可以越没有什么越想要什么，所以我希望我爱的人我能给他一个足够的仪式感</p>
+                <p>你猜猜我会送你什么吧，哈哈 反正你当天就知道啦。</p>
+                <p>我们两个人之间，经历了太多坎坎坷坷，不过是感情还是现实层面 走到现在 磨合到现在 两个人真的很不容易 。</p>
+                <p>值得庆幸的是我们依然陪在彼此的生边，遇到一个可爱 又很爱我的宝宝 我很幸福 我时常幻想我们在一起的模样 ，一起逛超市 一起做饭 一起睡觉 一起起床
+                <p>我希望我的生活被你填满 我也希望你的每时每刻有我的陪伴。</p>
+                <p>我希望你成为一个超级幸福的宝宝 当然更希望你跟我在一起的时候时时刻刻都被幸福包围。也希望我们可以像我们所想的样子幸福的过一辈子。</p>
+                <p>希望你永远快快乐乐 ，这次给你准备了两个礼物 一个是 花点小钱买的 一个是自己花了3天画的 虽然我现在没什么钱 但是希望你还是可以收到自己想要的 还有我自己付出心意的东西 。</p>
+                <p>最后就是希望咱俩早点见面。爱你</p>
+            </div>
+            
+            <div class="photo-gallery">
+                <div class="photo-frame">
+                    <!-- 在这里替换为实际的照片 -->
+                    <img src="D:\桌面\生日快乐\image/画1.jpg" alt="和好券">
+                </div>
+                <div class="photo-frame">
+                    <img src="D:\桌面\生日快乐/image//画2.jpg" alt="礼物券">
+                </div>
+                <div class="photo-frame">
+                    <img src="D:\桌面\生日快乐/image/9c8e57a8624876cd99c543a87b4c0e0a.jpg" alt="合照">
+                </div>
+                <div class="photo-frame">
+                    <img src="D:\桌面\生日快乐/image/e653f8eae9f557546e43a60dc0e9ba7a.jpg" alt="合照">
+                </div>
+                <div class="photo-frame add-photo">
+                    <span>+</span>
+                    <p>添加照片</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cake-section">
+            <div class="cake">
+                <div class="cake-base"></div>
+                <div class="cake-top"></div>
+                <div class="candle"></div>
+                <div class="flame"></div>
+            </div>
+        </section>
+        
+    
+        
+        <footer class="footer">
+            <p>特别为你制作的生日网页 | www.wangzixinshengrikuaile.com</p>
+        </footer>
+    </div>
+
+    <script>
+        // 简单的交互功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 点击添加照片区域时触发文件选择
+            const addPhotoBtn = document.querySelector('.add-photo');
+            addPhotoBtn.addEventListener('click', function() {
+                alert('在这里可以添加上传照片的功能');
+            });
+            
+            // 为每个祝福语添加点击效果
+            const wishes = document.querySelectorAll('.wish');
+            wishes.forEach(wish => {
+                wish.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.1)';
+                    this.style.backgroundColor = '#ffcdd2';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                        this.style.backgroundColor = 'white';
+                    }, 300);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
